@@ -1,0 +1,18 @@
+{
+  "name": "createselectorproject",
+  "version": "1.0.0",
+  "description": "Retrieve all pages from a website and then create PageObjects for UI Test Automation",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thibaud LE RAY",
+  "license": "MIT",
+  "dependencies": {
+    "cmake-js": "^7.3.1",
+    "node-llama-cpp": "^3.13.0",
+    "path": "^0.12.7",
+    "puppeteer": "^24.22.3"
+  }
+}
