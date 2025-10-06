@@ -38,7 +38,7 @@ async function examinePage(target_url){
 
 }
 
-async function exploreUat(target_domain)
+async function exploreUat(target_domain, iaModel)
 {
     console.log(`Starting to explore every pages of ${target_domain}. See you soon`);
     var dom;
@@ -61,7 +61,7 @@ async function exploreUat(target_domain)
             newUrls = result.urls;
         });
 
-        let selectors = await ask(dom);
+        let selectors = await ask(iaModel, dom);
 
         console.log("Creating a new page objects file.")
         await createPageFile(listOfUrls[i], selectors);

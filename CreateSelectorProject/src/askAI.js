@@ -4,19 +4,17 @@ import {getLlama, LlamaChatSession} from "node-llama-cpp";
 import fs from "fs/promises";
 import { selector_model } from "./templates/javascript_playwright.js";
 
-
 var session;
 
-export async function initAI(specificModel)
+export async function initAI(iaModel, specificModel)
 {
 
     console.log("Initiating the AI to respond correctly");
-    const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
     const llama = await getLlama();
     const model = await llama.loadModel({
         //gpuLayers:30,
-        modelPath: path.join(__dirname, "models", "Llama-3_2-3B-Q6.gguf"),
+        modelPath: iaModel,
         defaultContextFlashAttention: true,
         defaultContextSwaFullCache: true
     });
@@ -40,9 +38,9 @@ async function dispose()
     session.dispose();
 }
 
-export async function ask(data)
+export async function ask(iaModel, data)
 {
-    await initAI(selector_model);
+    await initAI(iaModel, selector_model);
     const initialChatHistory = session.getChatHistory();
     var response = '';
     try{
